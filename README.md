@@ -29,7 +29,8 @@ Instructions are provided in `instructions.md` (markdown file) and `instructions
 
 I will use [binder](https://www.pythonanywhere.com/) to avoid requiring you to install an IDE.
 
-Please click the following to use a web version of JupyterLab with the dependencies installed [Binder]()
+Please click the following to use a web version of JupyterLab with the dependencies installed
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/nicholsons/data-viz-plotly-dash.git/HEAD?filepath=dash_app.ipynb)
 
 If you have an IDE e.g. PyCharm (professional version with [free academic license](https://www.jetbrains.com/community/education/#students)) or Visual Studio Code, then it
 would be useful to set up the basic project before the session. Guidelines for this are in `instructions.md`.
