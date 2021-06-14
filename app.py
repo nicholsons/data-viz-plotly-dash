@@ -1,3 +1,5 @@
+from urllib import error
+
 import dash
 import dash_bootstrap_components as dbc
 import dash_core_components as dcc
@@ -8,25 +10,25 @@ from dash.dependencies import Input, Output
 
 import prepare_data
 
-# Prepare the data using the functions in prepare_data.py
+# Global variables for the two charts
+msg_no_data = 'No chart to display'
+fig_static = go.Figure(data=[go.Table(header=dict(values=[msg_no_data]))])
+fig_select = go.Figure(data=[go.Table(header=dict(values=[msg_no_data]))])
+df_country_data = pd.DataFrame()
+top_10_country_list = []
+
+# Read the John Hopkins dataset, prepare the data and create the chart using functions in prepare_data.py
 csv_file = "https://github.com/CSSEGISandData/COVID-19/raw/master/csse_covid_19_data/csse_covid_19_time_series" \
            "/time_series_covid19_confirmed_global.csv"
-
-# Global variables for the two charts
-#fig = go.Figure(data=[go.Table(header=dict(values=['No chart to display yet']))])
-#fig_select = go.Figure(data=[go.Table(header=dict(values=['No chart to display yet']))])
-fig = None
-fig_select = None
-top_10_country_list = []
 
 try:
     df_raw = pd.read_csv(csv_file)
     df_cleaned_data = prepare_data.clean_data(df_raw)
     df_country_data = prepare_data.consolidate_country_data(df_cleaned_data)
     top_10_country_list = prepare_data.get_top_10_country_list(df_country_data)
-    fig = prepare_data.create_chart(df_country_data, top_10_country_list)
-except FileNotFoundError:
-    print("Could not find file:", csv_file)
+    fig_static = prepare_data.create_chart(df_country_data, top_10_country_list)
+except (FileNotFoundError, error.HTTPError) as e:
+    print("Could not find file:", csv_file, e)
 
 # Create the Dash app instance and use the Bootstrap stylesheet theme
 app = dash.Dash(external_stylesheets=[dbc.themes.BOOTSTRAP])
@@ -35,7 +37,7 @@ app = dash.Dash(external_stylesheets=[dbc.themes.BOOTSTRAP])
 app.layout = dbc.Container(children=[
     html.H1("COVID-19 Dashboard"),
     html.H2("Example of a static chart"),
-    dcc.Graph(figure=fig),
+    dcc.Graph(figure=fig_static),
     html.H2("Example of an interactive chart (using Dash callbacks"),
     dbc.FormGroup([
         html.H4("Select countries"),
@@ -55,9 +57,9 @@ app.layout = dbc.Container(children=[
 
 @app.callback(Output('fig_selected_countries', 'figure'), [Input('dd_countries', 'value')])
 def plot_selected_countries(selected_countries):
-    fig_select = prepare_data.create_chart(df_country_data, selected_countries)
+    fig_select_updated = prepare_data.create_chart(df_country_data, selected_countries)
     prepare_data.add_range_slider(fig_select)
-    return fig_select
+    return fig_select_updated
 
 
 if __name__ == '__main__':

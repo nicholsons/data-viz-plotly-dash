@@ -105,6 +105,9 @@ next 45 minutes!
 
 ## How to use python Plotly Dash to create a simple web data dashboard
 
+### Covid chart recreated in Plotly chart library (Plotly Graph Objects)
+I'm not familiar with R so have tried to recreate 
+
 ### What is Plotly Dash?
 
 Plotly Dash is a high level library that provides a way for you to create a web app dashboard using Python (as well as R
