@@ -87,6 +87,17 @@ def create_chart(country_data, country_list):
     return fig
 
 
+def add_range_slider(fig):
+    fig.update_layout(
+        xaxis=dict(
+            rangeslider=dict(
+                visible=True
+            ),
+        )
+    )
+    return fig
+
+
 if __name__ == '__main__':
     df_raw = pd.read_csv(
         "https://github.com/CSSEGISandData/COVID-19/raw/master/csse_covid_19_data/csse_covid_19_time_series"
