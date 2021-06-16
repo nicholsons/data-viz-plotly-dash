@@ -70,6 +70,9 @@ copy and paste.
 When a browser receives a web page to display, it generates a tree structure to represent the page called the Domain
 Object Model, DOM. The DOM has methods that allow programmatic access to elements in this tree.
 
+![The HTML DOM Tree of Objects](img_dom_tree.gif)
+[Source w3schools.com]: https://www.w3schools.com/js/pic_htmltree.gif
+
 CSS is applied to one or more HTML elements using 'selectors'. A selector is a mechanism to locate a particular HTML
 element on a web page and apply styling to it.
 
@@ -99,7 +102,7 @@ For now you can forget about HTTP as we won't need to code anything that directl
 
 ### Summary
 
-![Structure of a web app](web_app.jpeg)
+![Structure of a web app](img_web_app.jpeg)
 [Source Mark Dabbs, 2019]: https://reinvently.com/blog/fundamentals-web-application-architecture/
 
 - HTML provides the page structure.
@@ -194,15 +197,18 @@ Experiment with different [themes](https://dash-bootstrap-components.opensource.
 you like. You may need to refresh the browser to see the changes, though you shouldn't need to stop and restart the Dash
 app.
 
-> Stretch:
+<hr>
+<i class="fa fa-lightbulb-o" aria-hidden="true"></i>
+Responsive design
+
 Bootstrap provides a way to make your design 'responsive', that is it tries to alter the style appropriately for browsers on different size devices (think difference between small portrait mobile phone and larger landscape laptop). To support the responsive design you need to move HTML elements into a container. Alter your layout to this:
 
   ```python
     app.layout = dbc.Container(children=
-[
-    html.H1("Hello Dash"),
-    html.P("This is my first Dash app")
-],
+        [
+            html.H1("Hello Dash"),
+            html.P("This is my first Dash app")
+        ],
     fluid=True,
 )
   ```
@@ -284,11 +290,14 @@ app.layout = html.Div(children=[
 
 ### There you have it, a web app with a chart!
 
-> Stretch by experimenting with:
-> - adding different chart types ([e.g. try adding example code for a PlotlyExpress chart](https://plotly.com/python/plotly-express/))
-> - using different HTML components ([try adding an image to the page](https://dash.plotly.com/dash-html-components/img))
-> - using different styles and layouts (try experimenting with [Bootstrap column and row layouts](https://dash-bootstrap-components.opensource.faculty.ai/docs/components/layout/), you will also need to use html.Col and html.Row)
+<hr>
+<i class="fa fa-lightbulb-o" aria-hidden="true"></i> 
+Experiment:
 
+- add different chart types ([e.g. try adding example code for a PlotlyExpress chart](https://plotly.com/python/plotly-express/))
+- use different HTML components ([try adding an image to the page](https://dash.plotly.com/dash-html-components/img))
+- use different styles and layouts (try experimenting with [Bootstrap column and row layouts](https://dash-bootstrap-components.opensource.faculty.ai/docs/components/layout/), you will also need to use html.Col and html.Row)
+<hr>
 ## 3. Add chart interactivity using callbacks
 
 _**15 mins**_
@@ -380,7 +389,7 @@ dropdown's `id` as the value of `htmlFor`.
 
 ```python
     html.Label("Select country/countries:", htmlFor="dd_countries"),
-dcc.Dropdown(id="dd_countries",
+    dcc.Dropdown(id="dd_countries",
              options=[{"label": x, "value": x} for x in top_10_country_list],
              value=[],
              multi=True),
@@ -471,8 +480,14 @@ Test out your web app, select a few countries and see the chart change.
 
 In case you haven't already seen it, there is a completed version of the code in `app_final.py.`
 
-> Stretch: Not all interactivity requires Dash. You can add some interaction in the chart itself using with Plotly Express or Plotly Go.  
-> Try and apply the slider to your interactive chart. There is a function called `add_range_slider(figure)` in `prepare_data.py` that you can use.
 
+<hr>
+<i class="fa fa-lightbulb-o" aria-hidden="true"></i> Use chart interactivitiy in Express or Go
+
+Not all interactivity requires Dash. You can add some interaction in the chart itself using with Plotly Express or Plotly Go.  
+
+Try and apply the slider to your interactive chart. There is a function called `add_range_slider(figure)` in `prepare_data.py` that you can use.
+
+<hr>
 
 _**The end (hopefully in under an hour)!**_
