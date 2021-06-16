@@ -27,7 +27,8 @@ Instructions are provided in `instructions.md` (markdown file) and `instructions
 
 ### Preparation
 
-I will use [binder](https://www.pythonanywhere.com/) to avoid requiring you to install an IDE.
+I will use PyCharm (professional version), an IDE. However the code also runs in JupyterLab in Binder to avoid requiring
+you to install an IDE. The code is slightly different but not so that you couldn't follow the session.
 
 Please click the following to use a web version of JupyterLab with the dependencies installed
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/nicholsons/data-viz-plotly-dash.git/HEAD)
@@ -50,6 +51,5 @@ would be useful to set up the basic project before the session. Guidelines for t
 - [Dash Plotly Community Forum](https://community.plotly.com/c/dash/16)
 - [Dash-bootstrap-components documentation](https://dash-bootstrap-components.opensource.faculty.ai/docs/)
 
-If you are confused but want to continue with
-Dash, [check out this YouTube video.](https://www.youtube.com/watch?v=hSPmj7mK6ng). His explanations of the core
-features of Dash are particularly clear.
+If you want to continue with Dash, [check out this YouTube video.](https://www.youtube.com/watch?v=hSPmj7mK6ng). I find
+his explanations of the core features of Dash to be particularly clear.

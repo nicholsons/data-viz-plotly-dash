@@ -55,6 +55,18 @@ the `.html` file where the css file is in the head section of the page.
 </head>
 ```
 
+To make it even easier we are going to use someone else's CSS, in this case a widely ised library
+called [Bootstrap](https://getbootstrap.com/docs/5.0/getting-started/introduction/). They even give you the HTML code to
+copy and paste.
+
+```html
+
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+</head>
+```
+
 When a browser receives a web page to display, it generates a tree structure to represent the page called the Domain
 Object Model, DOM. The DOM has methods that allow programmatic access to elements in this tree.
 
@@ -69,8 +81,6 @@ using CSS. You programmatically select one or more elements to apply the defined
 JavaScript is a programming language. It (mostly) runs in the browser and is used to support interactivity. We are not
 going to use any JavaScript directly. Plotly Dash abstracts this away for us by provides python methods that we will
 use.
-
-For now you can forget that JavaScript exists!
 
 ### Web server
 
@@ -99,8 +109,8 @@ For now you can forget about HTTP as we won't need to code anything that directl
 - HTTP is the set of rules used to communicate between the browser and our server. The browser makes a request and the
   server sends a response.
 
-The good news is, you don't need to learn any of the above as we are going to use Python methods in Plotly Dash for all
-of these!
+The good news is we are going to use Python methods in Plotly Dash for all of these so you don't need to learn HTML, CSS
+and JavaScript.
 
 ## 2 Create a simple web dashboard
 
@@ -456,10 +466,13 @@ def update_fig_select(selected_countries):
 ```
 
 ### There you have it, a web app with an interactive chart!
-Test out your web app.
+
+Test out your web app, select a few countries and see the chart change.
+
+In case you haven't already seen it, there is a completed version of the code in `app_final.py.`
 
 > Stretch: Not all interactivity requires Dash. You can add some interaction in the chart itself using with Plotly Express or Plotly Go.  
 > Try and apply the slider to your interactive chart. There is a function called `add_range_slider(figure)` in `prepare_data.py` that you can use.
 
 
-_**The end!**_
+_**The end (hopefully in under an hour)!**_
