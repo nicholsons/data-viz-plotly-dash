@@ -23,12 +23,12 @@ csv_file = "https://github.com/CSSEGISandData/COVID-19/raw/master/csse_covid_19_
 
 try:
     df_raw = pd.read_csv(csv_file)
-    df_cleaned_data = prepare_data.clean_data(df_raw)
-    df_country_data = prepare_data.consolidate_country_data(df_cleaned_data)
-    top_10_country_list = prepare_data.get_top_10_country_list(df_country_data)
-    fig_static = prepare_data.create_chart(df_country_data, top_10_country_list)
 except (FileNotFoundError, error.HTTPError) as e:
     print(f'Could not find file {csv_file}. Error {e}')
+df_cleaned_data = prepare_data.clean_data(df_raw)
+df_country_data = prepare_data.consolidate_country_data(df_cleaned_data)
+top_10_country_list = prepare_data.get_top_10_country_list(df_country_data)
+fig_static = prepare_data.create_chart(df_country_data, top_10_country_list)
 
 # Create the Dash app instance and use the Bootstrap stylesheet theme
 app = dash.Dash(external_stylesheets=[dbc.themes.BOOTSTRAP])
@@ -60,4 +60,4 @@ def update_fig_select(selected_countries):
 
 
 if __name__ == '__main__':
-    app.run_server(debug=True)
+    app.run_server(debug=True, port=8060)
