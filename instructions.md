@@ -298,7 +298,8 @@ Experiment:
 - use different HTML components ([try adding an image to the page](https://dash.plotly.com/dash-html-components/img))
 - use different styles and layouts (try experimenting with [Bootstrap column and row layouts](https://dash-bootstrap-components.opensource.faculty.ai/docs/components/layout/), you will also need to use html.Col and html.Row)
 <hr>
-## 3. Add chart interactivity using callbacks
+
+## 3 Add chart interactivity using callbacks
 
 _**15 mins**_
 
