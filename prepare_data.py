@@ -27,6 +27,14 @@ def get_top_10_country_list(country_data):
 
 
 def create_chart(country_data, country_list):
+    """
+    Returns Plotly Go Scatter for the selected countries
+    Args:
+        country_data (DataFrame): Country data from day of first 100 cases
+        country_list (List): List of countries
+    Returns:
+        figure: A line chart showing the data for each selected country
+    """
     figure = go.Figure()
 
     for country in country_list:
@@ -88,6 +96,7 @@ def create_chart(country_data, country_list):
 
 
 def add_range_slider(figure):
+    """Adds a range slider for the x-axis of a Plotly graph"""
     figure.update_layout(
         xaxis=dict(
             rangeslider=dict(
